@@ -11,8 +11,6 @@ const Contact = () => {
     message: ''
   });
 
-  const [formStatus, setFormStatus] = useState('');
-
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -22,11 +20,32 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormStatus('sending');
     
-    // Simulate form submission
+    // Construct email body with all form fields
+    const emailBody = `
+Full Name: ${formData.fullName}
+
+Company Name: ${formData.companyName}
+
+Email Address: ${formData.email}
+
+Phone Number: ${formData.phone}
+
+Message:
+${formData.message}
+    `.trim();
+
+    // Email recipients
+    const recipients = 'info@tiwarifarma.com,info.tiwarifarma@gmail.com';
+    
+    // Construct mailto URL with encoded parameters
+    const mailtoLink = `mailto:${recipients}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(emailBody)}`;
+    
+    // Open default email client
+    window.location.href = mailtoLink;
+    
+    // Optional: Clear form after opening email client
     setTimeout(() => {
-      setFormStatus('success');
       setFormData({
         fullName: '',
         companyName: '',
@@ -35,11 +54,7 @@ const Contact = () => {
         subject: '',
         message: ''
       });
-      
-      setTimeout(() => {
-        setFormStatus('');
-      }, 5000);
-    }, 1000);
+    }, 500);
   };
 
   return (
@@ -128,14 +143,8 @@ const Contact = () => {
               <div className="form-card">
                 <h3>Send Us a Message</h3>
                 <p className="form-intro">
-                  Fill out the form below and we'll get back to you as soon as possible.
+                  Fill out the form below and click "Send Message" to open your email client with pre-filled details.
                 </p>
-
-                {formStatus === 'success' && (
-                  <div className="form-message success">
-                    ✓ Thank you! Your message has been sent successfully. We'll get back to you soon.
-                  </div>
-                )}
 
                 <form onSubmit={handleSubmit} className="contact-form">
                   <div className="form-row">
@@ -222,9 +231,8 @@ const Contact = () => {
                   <button 
                     type="submit" 
                     className="submit-button"
-                    disabled={formStatus === 'sending'}
                   >
-                    {formStatus === 'sending' ? 'Sending...' : 'Send Message'}
+                    Send Message
                   </button>
                 </form>
               </div>
