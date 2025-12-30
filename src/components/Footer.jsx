@@ -31,10 +31,10 @@ const Footer = () => {
           <div className="footer-section">
             <h4>Our Products</h4>
             <ul>
-              <li>Active Pharmaceutical Ingredients</li>
-              <li>Pharmaceutical Raw Materials</li>
-              <li>Nutraceuticals</li>
-              <li>Chemicals & Excipients</li>
+              <li>Levosulpiride / Sulpiride API</li>
+              <li>Levocetirizine Hydrochloride</li>
+              <li>Methylcobalamin</li>
+              <li>Pharmaceutical Excipients</li>
               <li>Drug Intermediates</li>
             </ul>
           </div>
