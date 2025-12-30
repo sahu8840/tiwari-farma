@@ -1,0 +1,394 @@
+.services-page {
+  width: 100%;
+}
+
+/* Services Section */
+.services-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.service-card {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 40px 30px;
+  border-radius: 15px;
+  border: 2px solid #cbd5e1;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  background: white;
+  border-color: #2563eb;
+  box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15);
+  transform: translateY(-8px);
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: block;
+  text-align: center;
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.service-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #64748b;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.service-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-features li {
+  padding: 8px 0 8px 30px;
+  color: #475569;
+  position: relative;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.service-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 5px;
+  color: #2563eb;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Process Section */
+.process-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 80px 0;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  position: relative;
+}
+
+.process-step {
+  background: white;
+  padding: 35px 25px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.process-step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(37, 99, 235, 0.15);
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.process-step h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 12px;
+}
+
+.process-step p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #64748b;
+}
+
+.step-arrow {
+  display: none;
+}
+
+/* Industries Section */
+.industries-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.industries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.industry-card {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  padding: 30px;
+  border-radius: 12px;
+  border-left: 4px solid #2563eb;
+  transition: all 0.3s ease;
+}
+
+.industry-card:hover {
+  background: white;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
+  transform: translateX(8px);
+}
+
+.industry-card h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.industry-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Benefits Section */
+.benefits-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 80px 0;
+}
+
+.benefits-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
+  transform: translateY(-5px);
+}
+
+.benefit-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.benefit-text h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.benefit-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Services CTA */
+.services-cta {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.services-cta h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.services-cta p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #e0e7ff;
+}
+
+.services-cta .btn-primary {
+  background: white;
+  color: #2563eb;
+  font-size: 1.1rem;
+  padding: 15px 40px;
+}
+
+.services-cta .btn-primary:hover {
+  background: #fef3c7;
+  transform: translateY(-3px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 968px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .industries-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefits-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-section,
+  .process-section,
+  .industries-section,
+  .benefits-section,
+  .services-cta {
+    padding: 60px 0;
+  }
+
+  .service-card {
+    padding: 30px 25px;
+  }
+
+  .service-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .process-step {
+    padding: 25px 20px;
+  }
+
+  .step-number {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+
+  .process-step h4 {
+    font-size: 1.2rem;
+  }
+
+  .industry-card {
+    padding: 25px 20px;
+  }
+
+  .benefit-item {
+    padding: 20px;
+  }
+
+  .services-cta h2 {
+    font-size: 2rem;
+  }
+
+  .services-cta p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-section,
+  .process-section,
+  .industries-section,
+  .benefits-section {
+    padding: 40px 0;
+  }
+
+  .service-card {
+    padding: 25px 20px;
+  }
+
+  .service-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .service-description {
+    font-size: 0.95rem;
+  }
+
+  .service-features li {
+    font-size: 0.95rem;
+  }
+
+  .process-step {
+    padding: 20px 15px;
+  }
+
+  .step-number {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+
+  .process-step h4 {
+    font-size: 1.1rem;
+  }
+
+  .industry-card h4 {
+    font-size: 1.1rem;
+  }
+
+  .industry-card p {
+    font-size: 0.95rem;
+  }
+
+  .benefit-text h4 {
+    font-size: 1.1rem;
+  }
+
+  .benefit-text p {
+    font-size: 0.95rem;
+  }
+
+  .services-cta h2 {
+    font-size: 1.75rem;
+  }
+
+  .services-cta p {
+    font-size: 1rem;
+  }
+}
+
