@@ -3,10 +3,9 @@ import './About.css';
 
 const About = () => {
   const milestones = [
-    { year: 'Est. 2020', title: 'Company Founded', description: 'Started our journey in pharmaceutical trading' },
-    { year: '2021', title: 'Expansion', description: 'Extended product portfolio and client base' },
-    { year: '2022', title: 'Recognition', description: 'Became trusted partner for major pharma companies' },
-    { year: '2023', title: 'Growth', description: 'Expanded to international markets' }
+    { year: '2023', title: 'Company Founded', description: 'Started our journey in pharmaceutical trading' },
+    { year: '2024', title: 'Expansion', description: 'Extended product portfolio and client base' },
+    { year: '2025', title: 'Recognition', description: 'Became trusted partner for major pharma companies' }
   ];
 
   const values = [
@@ -46,7 +45,7 @@ const About = () => {
       <section className="company-overview">
         <div className="container">
           <div className="overview-content">
-            <div className="overview-text">
+            <div className="overview-text-full">
               <h2>Who We Are</h2>
               <p>
                 Tiwari Farma is a leading supplier, trader, and distributor of Pharmaceutical Raw Materials, 
@@ -65,19 +64,6 @@ const About = () => {
                 across the country and internationally. Our commitment to quality, reliability, and 
                 customer satisfaction has made us a preferred choice in the pharmaceutical trading industry.
               </p>
-            </div>
-            <div className="overview-image">
-              <div className="image-placeholder">
-                <svg width="100%" height="100%" viewBox="0 0 400 400" fill="none">
-                  <rect width="400" height="400" fill="#e2e8f0"/>
-                  <path d="M150 180 L150 280 L250 280 L250 180 M150 220 L250 220 M200 180 L200 220" 
-                        stroke="#64748b" strokeWidth="4" strokeLinecap="round"/>
-                  <circle cx="200" cy="140" r="30" stroke="#64748b" strokeWidth="4"/>
-                  <text x="200" y="360" textAnchor="middle" fill="#64748b" fontSize="16" fontWeight="600">
-                    Pharmaceutical Excellence
-                  </text>
-                </svg>
-              </div>
             </div>
           </div>
         </div>

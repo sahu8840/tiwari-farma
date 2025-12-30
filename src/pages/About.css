@@ -28,39 +28,28 @@
 }
 
 .overview-content {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 50px;
-  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.overview-text h2 {
+.overview-text-full {
+  width: 100%;
+}
+
+.overview-text-full h2 {
   font-size: 2.5rem;
   font-weight: 700;
   color: #1e293b;
   margin-bottom: 25px;
+  text-align: center;
 }
 
-.overview-text p {
+.overview-text-full p {
   font-size: 1.1rem;
   line-height: 1.8;
   color: #475569;
   margin-bottom: 20px;
-}
-
-.overview-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.image-placeholder {
-  width: 100%;
-  max-width: 400px;
-  aspect-ratio: 1;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  text-align: justify;
 }
 
 /* Mission & Vision */
@@ -280,11 +269,7 @@
     font-size: 2.5rem;
   }
 
-  .overview-content {
-    grid-template-columns: 1fr;
-  }
-
-  .overview-text h2 {
+  .overview-text-full h2 {
     font-size: 2rem;
   }
 
@@ -332,11 +317,11 @@
     font-size: 1.1rem;
   }
 
-  .overview-text h2 {
+  .overview-text-full h2 {
     font-size: 1.75rem;
   }
 
-  .overview-text p {
+  .overview-text-full p {
     font-size: 1rem;
   }
 
@@ -366,7 +351,7 @@
     font-size: 1rem;
   }
 
-  .overview-text h2 {
+  .overview-text-full h2 {
     font-size: 1.5rem;
   }
 

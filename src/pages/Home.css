@@ -125,39 +125,92 @@
   background: white;
 }
 
-.products-preview-grid {
+.featured-products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 25px;
   margin-bottom: 50px;
 }
 
-.product-preview-card {
+.featured-product-card {
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  padding: 30px 20px;
+  padding: 25px;
   border-radius: 12px;
-  text-align: center;
   border: 2px solid #cbd5e1;
   transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
 }
 
-.product-preview-card:hover {
+.featured-product-card:hover {
   background: white;
   border-color: #2563eb;
   box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15);
   transform: translateY(-5px);
 }
 
-.product-preview-icon {
-  color: #2563eb;
-  margin-bottom: 15px;
+.featured-product-card.expanded {
+  background: white;
+  border-color: #2563eb;
+  box-shadow: 0 12px 35px rgba(37, 99, 235, 0.2);
 }
 
-.product-preview-card h4 {
+.product-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.product-icon-circle {
+  color: #2563eb;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.featured-product-card.expanded .product-icon-circle {
+  transform: rotate(45deg);
+}
+
+.featured-product-card h4 {
   font-size: 1.1rem;
   font-weight: 600;
   color: #1e293b;
   line-height: 1.4;
+  margin: 0;
+}
+
+.product-details {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid #e2e8f0;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.detail-item {
+  padding: 10px 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #475569;
+  text-align: left;
+}
+
+.detail-item strong {
+  color: #1e293b;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 160px;
 }
 
 .products-cta {
@@ -218,8 +271,8 @@
     grid-template-columns: 1fr;
   }
 
-  .products-preview-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  .featured-products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }
 
@@ -248,6 +301,15 @@
 
   .feature-card {
     padding: 30px 20px;
+  }
+
+  .featured-products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-item strong {
+    display: block;
+    margin-bottom: 5px;
   }
 
   .cta-content h2 {

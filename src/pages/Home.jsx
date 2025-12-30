@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
 const Home = () => {
+  const [expandedProduct, setExpandedProduct] = useState(null);
+
   const features = [
     {
       id: 1,
@@ -24,14 +26,54 @@ const Home = () => {
     }
   ];
 
-  const topProducts = [
-    'Levosulpiride/Sulpiride API',
-    'Levocetirizine Hydrochloride',
-    'Methylcobalamin',
-    'Pharmaceutical Excipients',
-    'Active Pharmaceutical Ingredients',
-    'Drug Intermediates'
+  const featuredProducts = [
+    {
+      id: 1,
+      name: 'Levocetirizine Dihydrochloride',
+      therapeuticActivity: 'Anti-histamine, Anti-allergenic',
+      standards: 'IP / USP',
+      casNo: '130018-77-8'
+    },
+    {
+      id: 2,
+      name: 'Cetirizine Dihydrochloride',
+      therapeuticActivity: 'Anti-histamine, Anti-allergenic',
+      standards: 'IP / BP / EP',
+      casNo: '83881-52-1'
+    },
+    {
+      id: 3,
+      name: 'Pregabalin',
+      therapeuticActivity: 'Anticonvulsant',
+      standards: 'IP / EP',
+      casNo: '148553-50-8'
+    },
+    {
+      id: 4,
+      name: 'Levosalbutamol Sulphate',
+      therapeuticActivity: 'ANTI-ASTHAMATIC',
+      standards: 'IP',
+      casNo: '148563-16-0'
+    },
+    {
+      id: 5,
+      name: 'Salbutamol Sulphate',
+      therapeuticActivity: 'ANTI-ASTHAMATIC',
+      standards: 'IP',
+      casNo: '51022-70-9'
+    },
+    {
+      id: 6,
+      name: 'Vitamin D3',
+      therapeuticActivity: 'Essential Vitamin',
+      standards: 'USP / IP',
+      casNo: '67-97-0'
+    }
   ];
+
+  const toggleProduct = (productId) => {
+    setExpandedProduct(expandedProduct === productId ? null : productId);
+  };
 
   return (
     <div className="home-page">
@@ -83,16 +125,36 @@ const Home = () => {
             <h2>Featured Products</h2>
             <p>Some of the products we specialize in</p>
           </div>
-          <div className="products-preview-grid">
-            {topProducts.map((product, index) => (
-              <div key={index} className="product-preview-card">
-                <div className="product-preview-icon">
-                  <svg width="50" height="50" viewBox="0 0 100 100" fill="none">
-                    <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="3" />
-                    <path d="M50 30 L50 70 M30 50 L70 50" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-                  </svg>
+          <div className="featured-products-grid">
+            {featuredProducts.map((product) => (
+              <div 
+                key={product.id} 
+                className={`featured-product-card ${expandedProduct === product.id ? 'expanded' : ''}`}
+                onClick={() => toggleProduct(product.id)}
+              >
+                <div className="product-header">
+                  <div className="product-icon-circle">
+                    <svg width="50" height="50" viewBox="0 0 100 100" fill="none">
+                      <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="3" />
+                      <path d="M50 30 L50 70 M30 50 L70 50" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                    </svg>
+                  </div>
+                  <h4>{product.name}</h4>
                 </div>
-                <h4>{product}</h4>
+                
+                {expandedProduct === product.id && (
+                  <div className="product-details">
+                    <div className="detail-item">
+                      <strong>Therapeutic Activity:</strong> {product.therapeuticActivity}
+                    </div>
+                    <div className="detail-item">
+                      <strong>Standards:</strong> {product.standards}
+                    </div>
+                    <div className="detail-item">
+                      <strong>CAS No.:</strong> {product.casNo}
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
