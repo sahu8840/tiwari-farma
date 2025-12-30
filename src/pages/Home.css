@@ -199,7 +199,7 @@
 /* Mobile Responsive */
 @media (max-width: 968px) {
   .hero-section {
-    padding: 40px 0 60px;
+    padding: 25px 0 50px;
   }
 
   .hero-title {
@@ -225,7 +225,7 @@
 
 @media (max-width: 768px) {
   .hero-section {
-    padding: 30px 0 50px;
+    padding: 20px 0 40px;
   }
 
   .hero-title {
@@ -261,7 +261,7 @@
 
 @media (max-width: 480px) {
   .hero-section {
-    padding: 20px 0 40px;
+    padding: 15px 0 35px;
   }
 
   .hero-title {
