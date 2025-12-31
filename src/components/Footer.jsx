@@ -31,11 +31,12 @@ const Footer = () => {
           <div className="footer-section">
             <h4>Our Products</h4>
             <ul>
-              <li>Levosulpiride / Sulpiride API</li>
-              <li>Levocetirizine Hydrochloride</li>
-              <li>Methylcobalamin</li>
-              <li>Pharmaceutical Excipients</li>
-              <li>Drug Intermediates</li>
+              <li>Levocetirizine Dihydrochloride</li>
+              <li>Cetirizine Dihydrochloride</li>
+              <li>Pregabalin</li>
+              <li>Levosalbutamol Sulphate</li>
+              <li>Salbutamol Sulphate</li>
+              <li>Vitamin D3</li>
             </ul>
           </div>
 
