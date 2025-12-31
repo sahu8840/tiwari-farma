@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
+import Logo from '../../public/logo.jpeg';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,6 +25,7 @@ const Navbar = () => {
         <div className="navbar-content">
           <Link to="/" className="navbar-brand" onClick={closeMenu}>
             <div className="brand-logo">
+              <img src={Logo} alt="Tiwari Farma" className="brand-logo-img" />
               <h1>TIWARI FARMA</h1>
             </div>
           </Link>

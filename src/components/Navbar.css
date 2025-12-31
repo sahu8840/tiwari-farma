@@ -26,16 +26,32 @@
   transform: scale(1.05);
 }
 
+
+/* Brand container: logo image followed by text */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
 .brand-logo h1 {
-  font-size: 1.8rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: white;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   margin: 0;
   background: linear-gradient(135deg, #f59e0b, #ea580c);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Logo image styles */
+.brand-logo img,
+.brand-logo-img {
+  height: 38px;
+  width: auto;
+  display: block;
 }
 
 .navbar-menu {
@@ -110,6 +126,11 @@
     display: flex;
   }
 
+  /* Reduce navbar vertical padding on mobile to remove extra gap */
+  .navbar-content {
+    padding: 0.5rem 0;
+  }
+
   .navbar-menu {
     position: absolute;
     top: 100%;
@@ -140,13 +161,13 @@
   }
 
   .brand-logo h1 {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 480px) {
   .brand-logo h1 {
-    font-size: 1.2rem;
+    font-size: 1rem;
     letter-spacing: 1px;
   }
 

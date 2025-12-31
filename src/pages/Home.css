@@ -251,8 +251,14 @@
 
 /* Mobile Responsive */
 @media (max-width: 968px) {
+  /* Reserve space equal to navbar height so content doesn't slide under it */
   .hero-section {
-    padding: 25px 0 50px;
+    padding: 64px 0 50px;
+  }
+
+  /* Hide decorative overlay on smaller screens to avoid visible strip under sticky navbar */
+  .hero-overlay {
+    display: none;
   }
 
   .hero-title {
@@ -278,7 +284,7 @@
 
 @media (max-width: 768px) {
   .hero-section {
-    padding: 20px 0 40px;
+    padding: 56px 0 40px;
   }
 
   .hero-title {
@@ -323,7 +329,7 @@
 
 @media (max-width: 480px) {
   .hero-section {
-    padding: 15px 0 35px;
+    padding: 52px 0 35px;
   }
 
   .hero-title {
