@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://sahu8840.github.io/tiwari-farma",
+  "homepage": "https://www.tiwarifarma.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
