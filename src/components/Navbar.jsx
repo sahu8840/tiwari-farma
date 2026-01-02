@@ -8,6 +8,7 @@ const Navbar = () => {
   const location = useLocation();
 
   const toggleMenu = () => {
+    console.log('Menu toggled, current state:', isMenuOpen);
     setIsMenuOpen(!isMenuOpen);
   };
 

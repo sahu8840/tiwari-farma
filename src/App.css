@@ -28,6 +28,7 @@ body {
 
 .main-content {
   flex: 1;
+  padding-top: 80px; /* Add space for fixed navbar */
 }
 
 /* Smooth scrolling */
@@ -118,6 +119,10 @@ section {
 }
 
 @media (max-width: 768px) {
+  .main-content {
+    padding-top: 60px; /* Slightly less padding for mobile navbar */
+  }
+
   section {
     padding: 60px 0;
   }
