@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Products.css';
 
 const Products = () => {
@@ -314,7 +315,7 @@ const Products = () => {
         <div className="container">
           <h2>Need a Custom Product?</h2>
           <p>Contact us for custom requirements and bulk orders</p>
-          <a href="/#/contact" className="btn btn-primary">Contact Us</a>
+          <Link to="/contact" className="btn btn-primary">Contact Us</Link>
         </div>
       </section>
     </div>
