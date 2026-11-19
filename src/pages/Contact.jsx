@@ -23,33 +23,56 @@ const Contact = () => {
     e.preventDefault();
 
     const emailBody = `
-Full Name: ${formData.fullName}
-
-Company Name: ${formData.companyName}
-
-Email Address: ${formData.email}
-
-Phone Number: ${formData.phone}
-
-Message:
-${formData.message}
+  Dear Tiwari Farma Team,
+  
+  I hope you are doing well.
+  
+  I am reaching out to enquire about your products and services. Please find my contact details and enquiry below.
+  
+  ====================================
+            MY CONTACT DETAILS
+  ====================================
+  
+  Full Name     : ${formData.fullName}
+  Company Name  : ${formData.companyName}
+  Email Address : ${formData.email}
+  Phone Number  : ${formData.phone}
+  
+  ====================================
+               MY ENQUIRY
+  ====================================
+  
+  Subject:
+  ${formData.subject || 'General Product Enquiry'}
+  
+  Message:
+  ${formData.message}
+  
+  ====================================
+  
+  I look forward to your response and
+  hope to establish a mutually beneficial
+  business relationship.
+  
+  Thank you for your time and assistance.
+  
+  Best Regards,
+  ${formData.fullName}
+  ${formData.companyName}
+  
+  Sent via: https://www.tiwarifarma.com
     `.trim();
 
-    const recipients = 'info@tiwarifarma.com,info.tiwarifarma@gmail.com';
-    const mailtoLink = `mailto:${recipients}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(emailBody)}`;
+    const recipients =
+      'info@tiwarifarma.com,info.tiwarifarma@gmail.com';
+
+    const subject = `Enquiry - ${formData.subject || 'Tiwari Farma'
+      }`;
+
+    const mailtoLink =
+      `mailto:${recipients}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
 
     window.location.href = mailtoLink;
-
-    setTimeout(() => {
-      setFormData({
-        fullName: '',
-        companyName: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
-      });
-    }, 500);
   };
 
   return (
