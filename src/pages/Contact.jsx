@@ -98,7 +98,6 @@ ${formData.message}
                     <div className="detail-content">
                       <h4>Phone</h4>
                       <p>
-                        <a href="tel:+918591106468">+91 8591106468</a><br />
                         <a href="tel:+917208502625">+91 7208502625</a>
                       </p>
                     </div>

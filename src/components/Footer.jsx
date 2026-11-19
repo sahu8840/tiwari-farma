@@ -51,7 +51,6 @@ const Footer = () => {
               </li>
               <li>
                 <strong>Phone:</strong><br />
-                +91 8591106468<br />
                 +91 7208502625
               </li>
               <li>

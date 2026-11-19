@@ -191,7 +191,7 @@ All pages are fully optimized for mobile devices with:
 
 - **Company**: Tiwari Farma
 - **Address**: Gala No.8 B70 Arihant Commercial Complex, Purna Village, Bhiwandi, Dist-Thane 421302, Maharashtra, India
-- **Phone**: +91 8591106468, +91 7208502625
+- **Phone**: +91 7208502625
 - **Email**: info@tiwarifarma.com, info.tiwarifarma@gmail.com
 - **Website**: www.tiwarifarma.com
 
