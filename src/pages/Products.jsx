@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Reveal from '../components/Reveal';
 import './Products.css';
 
 const Products = () => {
@@ -203,104 +204,96 @@ const Products = () => {
 
   return (
     <div className="products-page">
-      {/* Page Header */}
       <section className="page-header">
         <div className="container">
           <h1>Our Products</h1>
-          <p>Comprehensive Range of Pharmaceutical Raw Materials & Chemicals</p>
+          <p>Pharmaceutical raw materials, chemicals & intermediates</p>
         </div>
       </section>
 
-      {/* Featured Products Section */}
       <section className="featured-section">
         <div className="container">
-          <div className="section-header">
-            <h2>Featured Products</h2>
-            <p>Some of the products we specialize in</p>
-          </div>
+          <Reveal className="section-header">
+            <h2>Featured products</h2>
+            <p>Tap a product to view activity, standards, and CAS details</p>
+          </Reveal>
           <div className="featured-products-grid">
-            {featuredProducts.map((product) => (
-              <div 
-                key={product.id} 
-                className={`featured-product-card ${expandedProduct === product.id ? 'expanded' : ''}`}
-                onClick={() => toggleProduct(product.id)}
-              >
-                <div className="product-header">
-                  <div className="product-icon-circle">
-                    <svg width="50" height="50" viewBox="0 0 100 100" fill="none">
-                      <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="3" />
-                      <path d="M50 30 L50 70 M30 50 L70 50" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-                    </svg>
-                  </div>
-                  <h4>{product.name}</h4>
-                </div>
-                
-                {expandedProduct === product.id && (
-                  <div className="product-details">
-                    <div className="detail-item">
-                      <strong>Therapeutic Activity:</strong> {product.therapeuticActivity}
+            {featuredProducts.map((product, index) => {
+              const open = expandedProduct === product.id;
+              return (
+                <Reveal key={product.id} delay={index * 60}>
+                  <button
+                    type="button"
+                    className={`featured-product-card ${open ? 'expanded' : ''}`}
+                    onClick={() => toggleProduct(product.id)}
+                    aria-expanded={open}
+                  >
+                    <div className="product-header">
+                      <h4>{product.name}</h4>
+                      <span className="expand-icon" aria-hidden="true">{open ? '−' : '+'}</span>
                     </div>
-                    <div className="detail-item">
-                      <strong>Standards:</strong> {product.standards}
-                    </div>
-                    <div className="detail-item">
-                      <strong>CAS No.:</strong> {product.casNo}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
+                    {open && (
+                      <div className="product-details">
+                        <div className="detail-item">
+                          <strong>Therapeutic Activity</strong>
+                          <span>{product.therapeuticActivity}</span>
+                        </div>
+                        <div className="detail-item">
+                          <strong>Standards</strong>
+                          <span>{product.standards}</span>
+                        </div>
+                        <div className="detail-item">
+                          <strong>CAS No.</strong>
+                          <span>{product.casNo}</span>
+                        </div>
+                      </div>
+                    )}
+                  </button>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* All Products List Section */}
       <section className="all-products-section">
         <div className="container">
-          <div className="section-header">
-            <h2>Complete Product List</h2>
-            <p>Search from our extensive range of pharmaceutical products</p>
-          </div>
+          <Reveal className="section-header">
+            <h2>Complete product list</h2>
+            <p>Search by name or standard (IP, USP, BP…)</p>
+          </Reveal>
 
-          {/* Search Bar */}
-          <div className="search-container">
+          <Reveal className="search-container">
             <input
               type="text"
-              placeholder="Search products by name or standard (e.g., IP, USP, BP)..."
+              placeholder="Search products…"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="search-input"
             />
-            <div className="search-icon">
+            <div className="search-icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.35-4.35"></path>
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.35-4.35" />
               </svg>
             </div>
-          </div>
+          </Reveal>
 
-          {/* Products List */}
           <div className="products-list">
             {filteredAllProducts.map((product, index) => (
-              <div key={index} className="product-list-item">
-                {/* <div className="product-list-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M12 8v8M8 12h8"></path>
-                  </svg>
-                </div> */}
-                <div className="product-list-content">
-                  <h4>{product.name}</h4>
-                  <span className="product-standard">{product.standards}</span>
-                </div>
+              <div key={`${product.name}-${index}`} className="product-list-item">
+                <h4>{product.name}</h4>
+                <span className="product-standard">{product.standards}</span>
               </div>
             ))}
           </div>
 
           {filteredAllProducts.length === 0 && (
             <div className="no-results">
-              <p>No products found matching "{searchTerm}"</p>
-              <button onClick={() => setSearchTerm('')} className="btn btn-secondary">Clear Search</button>
+              <p>No products found matching “{searchTerm}”</p>
+              <button type="button" onClick={() => setSearchTerm('')} className="btn btn-outline">
+                Clear Search
+              </button>
             </div>
           )}
 
@@ -310,12 +303,13 @@ const Products = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="products-cta">
+      <section className="products-cta-banner">
         <div className="container">
-          <h2>Need a Custom Product?</h2>
-          <p>Contact us for custom requirements and bulk orders</p>
-          <Link to="/contact" className="btn btn-primary">Contact Us</Link>
+          <Reveal className="products-cta-inner">
+            <h2>Need a custom product?</h2>
+            <p>Contact us for custom requirements and bulk orders</p>
+            <Link to="/contact" className="btn btn-primary">Contact Us</Link>
+          </Reveal>
         </div>
       </section>
     </div>

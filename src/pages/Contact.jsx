@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Reveal from '../components/Reveal';
 import './Contact.css';
 
 const Contact = () => {
@@ -8,20 +9,19 @@ const Contact = () => {
     email: '',
     phone: '',
     subject: '',
-    message: ''
+    message: '',
   });
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Construct email body with all form fields
+
     const emailBody = `
 Full Name: ${formData.fullName}
 
@@ -35,16 +35,11 @@ Message:
 ${formData.message}
     `.trim();
 
-    // Email recipients
     const recipients = 'info@tiwarifarma.com,info.tiwarifarma@gmail.com';
-    
-    // Construct mailto URL with encoded parameters
     const mailtoLink = `mailto:${recipients}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(emailBody)}`;
-    
-    // Open default email client
+
     window.location.href = mailtoLink;
-    
-    // Optional: Clear form after opening email client
+
     setTimeout(() => {
       setFormData({
         fullName: '',
@@ -52,97 +47,87 @@ ${formData.message}
         email: '',
         phone: '',
         subject: '',
-        message: ''
+        message: '',
       });
     }, 500);
   };
 
   return (
     <div className="contact-page">
-      {/* Page Header */}
       <section className="page-header">
         <div className="container">
           <h1>Contact Us</h1>
-          <p>Get in touch with us for product inquiries and quotations</p>
+          <p>Product inquiries, quotations, and partnership conversations</p>
         </div>
       </section>
 
-      {/* Contact Content */}
       <section className="contact-content-section">
         <div className="container">
           <div className="contact-layout">
-            {/* Contact Information */}
-            <div className="contact-info-column">
-              <div className="info-card">
-                <h3>Get in Touch</h3>
+            <Reveal className="contact-info-column">
+              <div className="info-panel">
+                <h3>Get in touch</h3>
                 <p className="info-intro">
-                  We're here to help! Reach out to us for any product-related inquiries, 
-                  quotations, or general questions.
+                  Reach out for product-related inquiries, quotations, or general questions.
+                  We typically respond during business hours.
                 </p>
 
                 <div className="contact-details">
                   <div className="contact-detail-item">
-                    <div className="detail-icon">📍</div>
-                    <div className="detail-content">
-                      <h4>Address</h4>
-                      <p>
-                        Gala No.8 B70 Arihant Commercial Complex<br />
-                        Purna Village, Bhiwandi<br />
-                        Dist-Thane 421302, Maharashtra, India
-                      </p>
-                    </div>
+                    <span className="detail-label">Address</span>
+                    <p>
+                      Gala No.8 B70 Arihant Commercial Complex<br />
+                      Purna Village, Bhiwandi<br />
+                      Dist-Thane 421302, Maharashtra, India
+                    </p>
                   </div>
 
                   <div className="contact-detail-item">
-                    <div className="detail-icon">📞</div>
-                    <div className="detail-content">
-                      <h4>Phone</h4>
-                      <p>
-                        <a href="tel:+917208502625">+91 7208502625</a>
-                      </p>
-                    </div>
+                    <span className="detail-label">Phone</span>
+                    <p>
+                      <a href="tel:+917208502625">+91 7208502625</a>
+                    </p>
                   </div>
 
                   <div className="contact-detail-item">
-                    <div className="detail-icon">✉️</div>
-                    <div className="detail-content">
-                      <h4>Email</h4>
-                      <p>
-                        <a href="mailto:info@tiwarifarma.com">info@tiwarifarma.com</a><br />
-                        <a href="mailto:info.tiwarifarma@gmail.com">info.tiwarifarma@gmail.com</a>
-                      </p>
-                    </div>
+                    <span className="detail-label">Email</span>
+                    <p>
+                      <a href="mailto:info@tiwarifarma.com">info@tiwarifarma.com</a>
+                      <br />
+                      <a href="mailto:info.tiwarifarma@gmail.com">info.tiwarifarma@gmail.com</a>
+                    </p>
                   </div>
 
                   <div className="contact-detail-item">
-                    <div className="detail-icon">🌐</div>
-                    <div className="detail-content">
-                      <h4>Website</h4>
-                      <p>
-                        <a href="https://www.tiwarifarma.com" target="_blank" rel="noopener noreferrer">
-                          www.tiwarifarma.com
-                        </a>
-                      </p>
-                    </div>
+                    <span className="detail-label">Website</span>
+                    <p>
+                      <a
+                        href="https://www.tiwarifarma.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        www.tiwarifarma.com
+                      </a>
+                    </p>
                   </div>
                 </div>
 
                 <div className="business-hours">
-                  <h4>Business Hours</h4>
+                  <span className="detail-label">Business Hours</span>
                   <p>
-                    Monday - Saturday: 9:00 AM - 6:00 PM<br />
+                    Monday – Saturday: 9:00 AM – 6:00 PM
+                    <br />
                     Sunday: Closed
                   </p>
                 </div>
               </div>
-            </div>
+            </Reveal>
 
-            {/* Contact Form */}
-            <div className="contact-form-column">
-              <div className="form-card">
-                <h3>Send Us a Message</h3>
+            <Reveal className="contact-form-column" delay={120}>
+              <div className="form-panel">
+                <h3>Send a message</h3>
                 <p className="form-intro">
-                  Fill out the form below and click "Send Message" to open your email client with pre-filled details.
+                  Fill out the form and we’ll open your email client with the details ready to send.
                 </p>
 
                 <form onSubmit={handleSubmit} className="contact-form">
@@ -156,7 +141,7 @@ ${formData.message}
                         value={formData.fullName}
                         onChange={handleChange}
                         required
-                        placeholder="Enter your full name"
+                        placeholder="Your full name"
                       />
                     </div>
 
@@ -169,7 +154,7 @@ ${formData.message}
                         value={formData.companyName}
                         onChange={handleChange}
                         required
-                        placeholder="Enter company name"
+                        placeholder="Company name"
                       />
                     </div>
                   </div>
@@ -223,41 +208,38 @@ ${formData.message}
                       onChange={handleChange}
                       required
                       rows="6"
-                      placeholder="Tell us about your requirements..."
-                    ></textarea>
+                      placeholder="Tell us about your requirements…"
+                    />
                   </div>
 
-                  <button 
-                    type="submit" 
-                    className="submit-button"
-                  >
+                  <button type="submit" className="submit-button">
                     Send Message
                   </button>
                 </form>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* Map Section (Placeholder) */}
       <section className="map-section">
         <div className="container">
-          <div className="section-header">
-            <h2>Visit Our Location</h2>
-            <p>Find us at our office in Bhiwandi, Maharashtra</p>
-          </div>
-          <div className="map-placeholder">
-            <div className="map-content">
-              <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
-                <path d="M50 10 L50 90 M10 50 L90 50" stroke="#cbd5e1" strokeWidth="2"/>
-                <circle cx="50" cy="50" r="30" fill="#2563eb" opacity="0.2"/>
-                <path d="M50 25 C37.5 25 27.5 35 27.5 47.5 C27.5 62.5 50 75 50 75 C50 75 72.5 62.5 72.5 47.5 C72.5 35 62.5 25 50 25 Z" fill="#2563eb"/>
-                <circle cx="50" cy="47.5" r="7.5" fill="white"/>
-              </svg>
-              <p>Bhiwandi, Thane, Maharashtra</p>
-            </div>
-          </div>
+          <Reveal className="section-header">
+            <h2>Visit our location</h2>
+            <p>
+              Gala No.8 B70 Arihant Commercial Complex, Purna Village, Bhiwandi,
+              Dist-Thane 421302, Maharashtra
+            </p>
+          </Reveal>
+          <Reveal className="map-frame" delay={100}>
+            <iframe
+              title="Tiwari Farma location"
+              src="https://www.google.com/maps?q=Gala+No.8+B70+Arihant+Commercial+Complex+Purna+Village+Bhiwandi+Dist-Thane+421302+Maharashtra&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+          </Reveal>
         </div>
       </section>
     </div>
@@ -265,4 +247,3 @@ ${formData.message}
 };
 
 export default Contact;
-

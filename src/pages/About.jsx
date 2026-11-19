@@ -1,170 +1,148 @@
 import React from 'react';
+import Reveal from '../components/Reveal';
 import './About.css';
 
 const About = () => {
   const milestones = [
     { year: '2023', title: 'Company Founded', description: 'Started our journey in pharmaceutical trading' },
     { year: '2024', title: 'Expansion', description: 'Extended product portfolio and client base' },
-    { year: '2025', title: 'Recognition', description: 'Became trusted partner for major pharma companies' }
+    { year: '2025', title: 'Recognition', description: 'Became trusted partner for major pharma companies' },
   ];
 
   const values = [
     {
       title: 'Quality Assurance',
       description: 'We ensure all products meet the highest international quality standards and certifications.',
-      icon: '✓'
     },
     {
       title: 'Reliability',
       description: 'Consistent supply chain and timely delivery to meet your business requirements.',
-      icon: '🔒'
     },
     {
       title: 'Innovation',
       description: 'Constantly evolving our product range to meet emerging market demands.',
-      icon: '💡'
     },
     {
       title: 'Integrity',
       description: 'Transparent business practices and ethical standards in all our dealings.',
-      icon: '⚖️'
-    }
+    },
+  ];
+
+  const reasons = [
+    { title: 'Quality Products', text: 'Sourced from certified manufacturers and aligned with regulatory standards.' },
+    { title: 'Competitive Pricing', text: 'Strong market pricing without compromising quality.' },
+    { title: 'Timely Delivery', text: 'Efficient logistics and supply chain management.' },
+    { title: 'Expert Support', text: 'Technical and commercial guidance when you need it.' },
+    { title: 'Wide Product Range', text: 'A comprehensive portfolio of pharmaceutical materials.' },
+    { title: 'Customer Focus', text: 'Dedicated to meeting your specific requirements.' },
   ];
 
   return (
     <div className="about-page">
-      {/* Page Header */}
       <section className="page-header">
         <div className="container">
           <h1>About Tiwari Farma</h1>
-          <p>Your Trusted Partner in Pharmaceutical Excellence</p>
+          <p>Your trusted partner in pharmaceutical excellence</p>
         </div>
       </section>
 
-      {/* Company Overview */}
       <section className="company-overview">
         <div className="container">
-          <div className="overview-content">
-            <div className="overview-text-full">
-              <h2>Who We Are</h2>
-              <p>
-                Tiwari Farma is a leading supplier, trader, and distributor of Pharmaceutical Raw Materials, 
-                Nutraceuticals, Chemicals, Excipients, and Intermediates. With years of expertise in the 
-                pharmaceutical industry, we have established ourselves as a reliable partner for businesses 
-                seeking high-quality products and exceptional service.
-              </p>
-              <p>
-                Our product range comprises Active Pharmaceutical Ingredients (APIs), Pharmaceutical Raw 
-                Materials, and Drug Intermediates. We serve various sectors including pharmaceuticals, 
-                nutraceuticals, and chemical industries, providing tailored solutions to meet specific 
-                business requirements.
-              </p>
-              <p>
-                Located in Maharashtra, India, we have built a strong network of suppliers and clients 
-                across the country and internationally. Our commitment to quality, reliability, and 
-                customer satisfaction has made us a preferred choice in the pharmaceutical trading industry.
-              </p>
-            </div>
-          </div>
+          <Reveal className="overview-text">
+            <h2>Who we are</h2>
+            <p>
+              Tiwari Farma is a leading supplier, trader, and distributor of Pharmaceutical Raw Materials,
+              Nutraceuticals, Chemicals, Excipients, and Intermediates. With years of expertise in the
+              pharmaceutical industry, we have established ourselves as a reliable partner for businesses
+              seeking high-quality products and exceptional service.
+            </p>
+            <p>
+              Our product range comprises Active Pharmaceutical Ingredients (APIs), Pharmaceutical Raw
+              Materials, and Drug Intermediates. We serve pharmaceuticals, nutraceuticals, and chemical
+              industries with tailored solutions for specific business needs.
+            </p>
+            <p>
+              Based in Maharashtra, India, we have built a strong network of suppliers and clients across
+              the country and internationally — guided by quality, reliability, and customer satisfaction.
+            </p>
+          </Reveal>
         </div>
       </section>
 
-      {/* Mission & Vision */}
       <section className="mission-vision">
         <div className="container">
           <div className="mv-grid">
-            <div className="mv-card">
+            <Reveal className="mv-block">
               <h3>Our Mission</h3>
               <p>
-                To provide high-quality pharmaceutical raw materials and chemicals that meet international 
-                standards, while building long-term partnerships with our clients through reliability, 
-                transparency, and exceptional service.
+                To provide high-quality pharmaceutical raw materials and chemicals that meet international
+                standards, while building long-term partnerships through reliability, transparency, and
+                exceptional service.
               </p>
-            </div>
-            <div className="mv-card">
+            </Reveal>
+            <Reveal className="mv-block" delay={120}>
               <h3>Our Vision</h3>
               <p>
-                To become a globally recognized leader in pharmaceutical trading, known for our commitment 
-                to quality, innovation, and customer satisfaction. We aim to contribute to the healthcare 
-                industry by ensuring the availability of premium pharmaceutical products.
+                To become a globally recognized leader in pharmaceutical trading — known for quality,
+                innovation, and customer satisfaction — and to support healthcare by ensuring premium
+                materials are available when needed.
               </p>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* Core Values */}
       <section className="core-values">
         <div className="container">
-          <div className="section-header">
-            <h2>Our Core Values</h2>
+          <Reveal className="section-header">
+            <h2>Our core values</h2>
             <p>The principles that guide everything we do</p>
-          </div>
+          </Reveal>
           <div className="values-grid">
             {values.map((value, index) => (
-              <div key={index} className="value-card">
-                <div className="value-icon">{value.icon}</div>
+              <Reveal key={value.title} className="value-item" delay={index * 90}>
+                <span className="value-num">0{index + 1}</span>
                 <h4>{value.title}</h4>
                 <p>{value.description}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Our Journey */}
       <section className="our-journey">
         <div className="container">
-          <div className="section-header">
-            <h2>Our Journey</h2>
+          <Reveal className="section-header">
+            <h2>Our journey</h2>
             <p>Milestones in our growth story</p>
-          </div>
+          </Reveal>
           <div className="timeline">
             {milestones.map((milestone, index) => (
-              <div key={index} className="timeline-item">
-                <div className="timeline-marker"></div>
+              <Reveal key={milestone.year} className="timeline-item" delay={index * 120}>
+                <div className="timeline-marker" />
                 <div className="timeline-content">
                   <div className="timeline-year">{milestone.year}</div>
                   <h4>{milestone.title}</h4>
                   <p>{milestone.description}</p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us */}
       <section className="why-choose-us">
         <div className="container">
-          <div className="section-header">
-            <h2>Why Choose Tiwari Farma?</h2>
-          </div>
+          <Reveal className="section-header">
+            <h2>Why choose Tiwari Farma?</h2>
+          </Reveal>
           <div className="choose-us-grid">
-            <div className="choose-item">
-              <h4>✓ Quality Products</h4>
-              <p>All products are sourced from certified manufacturers and meet regulatory standards</p>
-            </div>
-            <div className="choose-item">
-              <h4>✓ Competitive Pricing</h4>
-              <p>Best market prices without compromising on quality</p>
-            </div>
-            <div className="choose-item">
-              <h4>✓ Timely Delivery</h4>
-              <p>Efficient logistics and supply chain management</p>
-            </div>
-            <div className="choose-item">
-              <h4>✓ Expert Support</h4>
-              <p>Knowledgeable team providing technical and commercial support</p>
-            </div>
-            <div className="choose-item">
-              <h4>✓ Wide Product Range</h4>
-              <p>Comprehensive portfolio of pharmaceutical materials</p>
-            </div>
-            <div className="choose-item">
-              <h4>✓ Customer Focus</h4>
-              <p>Dedicated to meeting your specific requirements</p>
-            </div>
+            {reasons.map((item, index) => (
+              <Reveal key={item.title} className="choose-item" delay={index * 70}>
+                <h4>{item.title}</h4>
+                <p>{item.text}</p>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
@@ -173,4 +151,3 @@ const About = () => {
 };
 
 export default About;
-

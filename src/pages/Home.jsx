@@ -1,29 +1,38 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Reveal from '../components/Reveal';
+import GrowthCharts from '../components/GrowthCharts';
 import './Home.css';
 
 const Home = () => {
   const [expandedProduct, setExpandedProduct] = useState(null);
 
-  const features = [
+  const pillars = [
     {
       id: 1,
       title: 'Unparalleled Quality',
-      description: 'We guarantee the highest quality pharmaceutical raw materials that meet international standards.',
-      icon: '✓'
+      description:
+        'Pharmaceutical raw materials that meet international standards and rigorous quality checks.',
     },
     {
       id: 2,
-      title: 'Trusted Partner',
-      description: 'Connecting bridge for the pharma industry with reliable supply chain solutions.',
-      icon: '🤝'
+      title: 'Trusted Partnership',
+      description:
+        'A reliable bridge for the pharma industry with dependable supply chain solutions.',
     },
     {
       id: 3,
-      title: 'Customer Satisfaction',
-      description: 'Your satisfaction is our priority. We ensure timely delivery and excellent service.',
-      icon: '⭐'
-    }
+      title: 'Customer Focus',
+      description:
+        'Timely delivery, clear communication, and service built around your requirements.',
+    },
+  ];
+
+  const categories = [
+    { title: 'APIs', text: 'Active pharmaceutical ingredients for finished formulations.' },
+    { title: 'Nutraceuticals', text: 'High-purity ingredients for wellness and nutrition brands.' },
+    { title: 'Excipients', text: 'Reliable inactive ingredients that support formulation stability.' },
+    { title: 'Intermediates', text: 'Key building blocks for efficient drug manufacturing.' },
   ];
 
   const featuredProducts = [
@@ -32,146 +41,188 @@ const Home = () => {
       name: 'Levocetirizine Dihydrochloride',
       therapeuticActivity: 'Anti-histamine, Anti-allergenic',
       standards: 'IP / USP',
-      casNo: '130018-77-8'
+      casNo: '130018-77-8',
     },
     {
       id: 2,
       name: 'Cetirizine Dihydrochloride',
       therapeuticActivity: 'Anti-histamine, Anti-allergenic',
       standards: 'IP / BP / EP',
-      casNo: '83881-52-1'
+      casNo: '83881-52-1',
     },
     {
       id: 3,
       name: 'Pregabalin',
       therapeuticActivity: 'Anticonvulsant',
       standards: 'IP / EP',
-      casNo: '148553-50-8'
+      casNo: '148553-50-8',
     },
     {
       id: 4,
       name: 'Levosalbutamol Sulphate',
-      therapeuticActivity: 'ANTI-ASTHAMATIC',
+      therapeuticActivity: 'Anti-asthmatic',
       standards: 'IP',
-      casNo: '148563-16-0'
+      casNo: '148563-16-0',
     },
     {
       id: 5,
       name: 'Salbutamol Sulphate',
-      therapeuticActivity: 'ANTI-ASTHAMATIC',
+      therapeuticActivity: 'Anti-asthmatic',
       standards: 'IP',
-      casNo: '51022-70-9'
+      casNo: '51022-70-9',
     },
     {
       id: 6,
       name: 'Vitamin D3',
       therapeuticActivity: 'Essential Vitamin',
       standards: 'USP / IP',
-      casNo: '67-97-0'
-    }
+      casNo: '67-97-0',
+    },
   ];
-
-  const toggleProduct = (productId) => {
-    setExpandedProduct(expandedProduct === productId ? null : productId);
-  };
 
   return (
     <div className="home-page">
-      {/* Hero Section */}
       <section className="hero-section">
-        <div className="hero-overlay"></div>
-        <div className="container">
-          <div className="hero-content">
-            <h1 className="hero-title">Welcome to Tiwari Farma</h1>
-            <p className="hero-subtitle">
-              Your Trusted Partner in Pharmaceutical Raw Materials & Chemicals
-            </p>
-            <p className="hero-description">
-              Leading supplier, trader of Pharmaceutical Raw Material, Nutraceuticals, Chemicals, 
-              Excipients & Intermediates. Our product range comprises of Active Pharmaceutical Ingredients, 
-              Pharmaceutical Raw Materials and Drug Intermediates.
-            </p>
-            <div className="hero-buttons">
-              <Link to="/products" className="btn btn-primary">View Products</Link>
-              <Link to="/contact" className="btn btn-secondary">Contact Us</Link>
-            </div>
+        <div className="hero-media" aria-hidden="true">
+          <div className="hero-image" />
+          <div className="hero-shade" />
+          <div className="hero-orbs">
+            <span className="orb orb-1" />
+            <span className="orb orb-2" />
+            <span className="orb orb-3" />
           </div>
+        </div>
+
+        <div className="container hero-inner">
+          <p className="hero-brand">Tiwari Farma</p>
+          <h1 className="hero-title">Precision materials for modern pharma</h1>
+          <p className="hero-support">
+            APIs, nutraceuticals, chemicals, excipients & intermediates — sourced with care.
+          </p>
+          <div className="hero-actions">
+            <Link to="/products" className="btn btn-primary">
+              View Products
+            </Link>
+            <Link to="/contact" className="btn btn-secondary">
+              Talk to Us
+            </Link>
+          </div>
+        </div>
+
+        <div className="hero-scroll" aria-hidden="true">
+          <span />
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="features-section">
+      <section className="pillars-section">
         <div className="container">
-          <div className="section-header">
-            <h2>Our 3 Pillars</h2>
-            <p>Core values that drive our commitment to excellence</p>
-          </div>
-          <div className="features-grid">
-            {features.map((feature) => (
-              <div key={feature.id} className="feature-card">
-                <div className="feature-icon">{feature.icon}</div>
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
-              </div>
+          <Reveal className="section-header">
+            <h2>Built on three pillars</h2>
+            <p>The standards that shape every partnership we form</p>
+          </Reveal>
+          <div className="pillars-grid">
+            {pillars.map((pillar, index) => (
+              <Reveal key={pillar.id} className="pillar-item" delay={index * 120}>
+                <span className="pillar-index">0{pillar.id}</span>
+                <h3>{pillar.title}</h3>
+                <p>{pillar.description}</p>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Products Preview Section */}
+      <section className="growth-section">
+        <div className="container">
+          <Reveal className="section-header">
+            <h2>Growing fast</h2>
+            <p>Momentum across clients and product demand since we started</p>
+          </Reveal>
+          <GrowthCharts />
+        </div>
+      </section>
+
+      <section className="categories-section">
+        <div className="container">
+          <Reveal className="section-header">
+            <h2>What we supply</h2>
+            <p>A focused range for pharmaceutical and chemical manufacturers</p>
+          </Reveal>
+          <div className="categories-grid">
+            {categories.map((item, index) => (
+              <Reveal key={item.title} className="category-row" delay={index * 90}>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="products-preview-section">
         <div className="container">
-          <div className="section-header">
-            <h2>Featured Products</h2>
-            <p>Some of the products we specialize in</p>
-          </div>
+          <Reveal className="section-header">
+            <h2>Featured products</h2>
+            <p>Tap a product to view activity, standards, and CAS details</p>
+          </Reveal>
           <div className="featured-products-grid">
-            {featuredProducts.map((product) => (
-              <div 
-                key={product.id} 
-                className={`featured-product-card ${expandedProduct === product.id ? 'expanded' : ''}`}
-                onClick={() => toggleProduct(product.id)}
-              >
-                <div className="product-header">
-                  <div className="product-icon-circle">
-                    <svg width="50" height="50" viewBox="0 0 100 100" fill="none">
-                      <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="3" />
-                      <path d="M50 30 L50 70 M30 50 L70 50" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-                    </svg>
-                  </div>
-                  <h4>{product.name}</h4>
-                </div>
-                
-                {expandedProduct === product.id && (
-                  <div className="product-details">
-                    <div className="detail-item">
-                      <strong>Therapeutic Activity:</strong> {product.therapeuticActivity}
+            {featuredProducts.map((product, index) => {
+              const open = expandedProduct === product.id;
+              return (
+                <Reveal key={product.id} delay={index * 70}>
+                  <button
+                    type="button"
+                    className={`featured-product ${open ? 'expanded' : ''}`}
+                    onClick={() =>
+                      setExpandedProduct(open ? null : product.id)
+                    }
+                    aria-expanded={open}
+                  >
+                    <div className="product-top">
+                      <h4>{product.name}</h4>
+                      <span className="expand-icon" aria-hidden="true">
+                        {open ? '−' : '+'}
+                      </span>
                     </div>
-                    <div className="detail-item">
-                      <strong>Standards:</strong> {product.standards}
-                    </div>
-                    <div className="detail-item">
-                      <strong>CAS No.:</strong> {product.casNo}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
+                    {open && (
+                      <div className="product-details">
+                        <div className="detail-item">
+                          <strong>Therapeutic Activity</strong>
+                          <span>{product.therapeuticActivity}</span>
+                        </div>
+                        <div className="detail-item">
+                          <strong>Standards</strong>
+                          <span>{product.standards}</span>
+                        </div>
+                        <div className="detail-item">
+                          <strong>CAS No.</strong>
+                          <span>{product.casNo}</span>
+                        </div>
+                      </div>
+                    )}
+                  </button>
+                </Reveal>
+              );
+            })}
           </div>
-          <div className="products-cta">
-            <Link to="/products" className="btn btn-primary">View All Products</Link>
-          </div>
+          <Reveal className="products-cta">
+            <Link to="/products" className="btn btn-outline">
+              Browse Full Catalog
+            </Link>
+          </Reveal>
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="cta-section">
+        <div className="cta-bg" aria-hidden="true" />
         <div className="container">
-          <div className="cta-content">
-            <h2>Ready to Get Started?</h2>
-            <p>Contact us today for product inquiries and quotations</p>
-            <Link to="/contact" className="btn btn-primary">Get in Touch</Link>
-          </div>
+          <Reveal className="cta-content">
+            <h2>Need a quote or product match?</h2>
+            <p>Share your requirement — we’ll respond with options and pricing.</p>
+            <Link to="/contact" className="btn btn-primary">
+              Get in Touch
+            </Link>
+          </Reveal>
         </div>
       </section>
     </div>
@@ -179,4 +230,3 @@ const Home = () => {
 };
 
 export default Home;
-
